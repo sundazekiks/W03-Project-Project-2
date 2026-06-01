@@ -5,6 +5,7 @@ const { run } = require('./db/mongodb');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger_output.json');
 const personRoute = require('./routes/person.route');
+const familyRoute = require('./routes/family.route');
 config();
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // routes
 app.use('/person', personRoute);
+app.use('/family', familyRoute);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 // error handlers

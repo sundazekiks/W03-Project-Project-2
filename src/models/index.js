@@ -13,15 +13,10 @@ function Person({ firstName, lastName, birthDate, sex, street_address, city, sta
     }
 }
 
-function Organization(org_name, org_type, street_address, city, state, zipCode) {
+function Family({ familyName, members }) {
     return {
-        org_name,
-        org_type,
-        street_address,
-        city,
-        state,
-        zipCode
+        familyName,
+        members
     }
 }
-
-module.exports = { Person, Organization };
+module.exports = { Person, Family };

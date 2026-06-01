@@ -37,8 +37,11 @@ const GetPersonById = async (req, res) => {
 const CreatePerson = async (req, res) => {
     // #swagger.description = 'Create a new person.'
     try {
+
+        const { firstName, lastName, birthdate, sex, street_address, city, state, zip_code } = req.body;
         const db = await getDb();
         // console.log('Request body:', req.body); // Log the request body for debugging
+
         const newPerson = Person({ ...req.body }); // Get the new person data from the request body
         // console.log('Creating person:', newPerson); // Log the new person data for debugging
         const result = await service.create(db.collection('persons'), newPerson); // Use the service to create the person
@@ -51,6 +54,7 @@ const CreatePerson = async (req, res) => {
 const UpdatePerson = async (req, res) => {
     // #swagger.description = 'Update an existing person by their ID. The ID should be a valid MongoDB ObjectId.'
     try {
+        const { firstName, lastName, birthdate, sex, street_address, city, state, zip_code } = req.body;
         const id = new ObjectId(req.params.id); // Get the ID from the request parameters and convert it to an ObjectId
         const db = await getDb();
         const updatedPerson = Person({ ...req.body }); // Get the updated person data from the request body
