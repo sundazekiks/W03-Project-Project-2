@@ -17,6 +17,6 @@ router.get('/github/callback',
     }
 );
 
-router.post('/logout', logout);
+router.get('/logout', logout);
 
 module.exports = router;
