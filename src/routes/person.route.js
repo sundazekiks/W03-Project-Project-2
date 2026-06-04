@@ -1,17 +1,18 @@
 const { Router } = require('express');
 const controller = require('../controller/person.controller');
+const isAuthenticated = require('../middleware/authenthicated');
 
 
 const person = Router();
 
-person.get('/', controller.GetAllPersons);
+person.get('/', isAuthenticated, controller.GetAllPersons);
 
-person.get('/:id', controller.GetPersonById);
+person.get('/:id', isAuthenticated, controller.GetPersonById);
 
-person.post('/', controller.CreatePerson);
+person.post('/', isAuthenticated, controller.CreatePerson);
 
-person.put('/:id', controller.UpdatePerson);
+person.put('/:id', isAuthenticated, controller.UpdatePerson);
 
-person.delete('/:id', controller.DeletePerson);
+person.delete('/:id', isAuthenticated, controller.DeletePerson);
 
 module.exports = person;
