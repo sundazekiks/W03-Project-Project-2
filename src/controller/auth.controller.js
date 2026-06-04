@@ -9,6 +9,11 @@ async function Login(req, res) {
     res.status(200).json({ message: 'Login successful' });
 }
 
+async function logout(req, res) {
+    req.logout(() => res.redirect('/'));
+};
+
 module.exports = {
-    Login
+    Login,
+    logout
 }

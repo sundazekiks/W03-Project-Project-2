@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { body } = require('express-validator');
-const { Login } = require('../controller/auth.controller');
+const { Login, logout } = require('../controller/auth.controller');
 const passport = require('../middleware/passport');
 
 const router = Router();
@@ -16,5 +16,7 @@ router.get('/github/callback',
         res.redirect('/dashboard'); // success
     }
 );
+
+router.post('/logout', logout);
 
 module.exports = router;
