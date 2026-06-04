@@ -5,7 +5,7 @@ const GitHubStrategy = require('passport-github2').Strategy;
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/auth/github/callback'
+    callbackURL: 'https://w03-project-project-2-aqb6.onrender.com//auth/github/callback'
 },
     (accessToken, refreshToken, profile, done) => {
         // profile contains GitHub user info
